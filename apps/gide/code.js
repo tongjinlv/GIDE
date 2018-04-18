@@ -433,6 +433,7 @@ Code.initLanguage = function() {
       option.selected = true;
     }
     languageMenu.options.add(option);
+    
   }
   languageMenu.addEventListener('change', Code.changeLanguage, true);
   
