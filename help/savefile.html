@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html>  
+  
+    <head>  
+        <meta charset="utf-8" />  
+        <title>require("fs")的使用</title>  
+    </head>  
+  
+    <body>  
+        <script>  
+            var fs = require("fs");  
+            var fileName = ""; //文件名称  
+            var dirName = ""; //文件夹名称  
+            //判断文件是否存在  
+            fileName = "demo.txt";  
+            fs.exists(fileName, function(exists) {  
+                console.log(exists ? "文件存在" : "文件不存在");  
+            });  
+            //创建文件夹  
+            dirName = "dir";  
+            fs.mkdir(dirName, function(err) {  
+                console.log("创建文件夹");  
+                fs.exists(dirName, function(exists) {  
+                    console.log(exists ? "创建成功" : "创建失败");  
+                });  
+            });  
+            //创建文本  
+            fileName = "demo.txt";  
+            var content = "hello word";  
+            fs.writeFile(fileName, content, function(err) {  
+                console.log("文本创建成功");  
+            });  
+        </script>  
+    </body>  
+  
+</html>  
