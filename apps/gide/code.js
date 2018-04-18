@@ -139,7 +139,6 @@ Code.changeLanguage = function() {
   } else {
     search = search.replace(/\?/, '?lang=' + newLang + '&');
   }
-  
   window.location = window.location.protocol + '//' +
       window.location.host + window.location.pathname + search;
   
@@ -321,7 +320,8 @@ Code.renderContent = function() {
  */
 Code.init = function() {
   Code.initLanguage();
-
+ 
+  Code.initSerail();
   var rtl = Code.isRtl();
   var container = document.getElementById('content_area');
   var onresize = function(e) {
@@ -444,7 +444,7 @@ Code.initLanguage = function() {
 		document.getElementById(cat).setAttribute('name', MSG[cat]);
 	}
   }
-
+ 
   // Inject language strings.
   //document.title += ' ' + MSG['title'];
   //document.getElementById('title').textContent = MSG['title'];
@@ -467,7 +467,9 @@ Code.initLanguage = function() {
     listVar.textContent = MSG['listVariable'];
   }
 };
-
+Code.initSerail = function() {
+  
+};
 /**
  * Execute the user's code.
  * Just a quick and dirty eval.  Catch infinite loops.
