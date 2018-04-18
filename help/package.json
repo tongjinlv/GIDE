@@ -1,0 +1,18 @@
+﻿{
+  "main": "GIDE\/apps\/mixly\/index.html", 
+  "name": "GIDE",
+  "window": {
+    "toolbar": true, 
+	"icon":"gide.png",
+    "frame": true,   
+	"position": "mouse",
+    "width": 800,
+    "height": 700,
+	"min_width": 400,
+    "min_height": 200,
+    "resizable": false, 
+	//"fullscreen": true,
+	"resizable":true
+  }
+
+}
