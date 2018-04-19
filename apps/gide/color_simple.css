@@ -334,3 +334,8 @@ div>span.blocklyTreeIcon.blocklyTreeIconNone{
 	background:url('../../media/mark/func2.png') no-repeat;
 	background-size: 100% auto; 
 }
+#\:f>.blocklyTreeSelected>span.blocklyTreeIcon.blocklyTreeIconNone{ 
+	background:url('../../media/mark/gide.png') no-repeat;
+	background-size: 100% auto; 
+}
+
