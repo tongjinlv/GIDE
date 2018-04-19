@@ -473,7 +473,6 @@ Code.initSerail = function() {
 var onGetDevices = function(ports) {
   for (var i=0; i<ports.length; i++) {
       console.log(ports[i].path);
-     // alert(ports[i].path);
       var new_opt = new Option(ports[i].path,ports[i].path);      
       objSelect.options.add(new_opt);
       // Connect to the serial port /dev/ttyUSB0
