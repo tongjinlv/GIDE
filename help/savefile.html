@@ -34,3 +34,37 @@
     </body>  
   
 </html>  
+
+var onGetDevices = function(ports) {
+  for (var i=0; i<ports.length; i++) {
+      console.log(ports[i].path);
+      var new_opt = new Option(ports[i].path,ports[i].path);      
+      objSelect.options.add(new_opt);
+      // Connect to the serial port /dev/ttyUSB0
+     // 
+    }
+  }
+  var onReceiveCallback = function(info) {//串口数据接收函数  
+    alert('received', convertArrayBufferToString(info.data)); 
+};  
+  var onConnect = function(connectionInfo) {  
+    chrome.serial.onReceive.addListener(onReceiveCallback);//指定串口数据接收函数  
+ //   alert(connectionInfo.connectionId);
+    var connectionId = connectionInfo.connectionId;//输出串口连接id，用于区别多串口  
+    var buffer = new ArrayBuffer(1);  
+    var dataView = new DataView(buffer);  
+    dataView.setInt8(0, 0xaa);//构造buffer数据  
+    alert("dd");
+    chrome.serial.send(connectionId, buffer, function() {//指定串口连接id，直接发送buffer数据，也可将字符串转化成buffer再发送convertStringToArrayBuffer("hello")  
+        chrome.serial.update(connectionId, {//改变波特率等参数  
+            bitrate: 9600  
+        }, function(result) {  
+            console.log(chrome.runtime.lastError, result);//改变执行结果  
+
+            chrome.serial.send(connectionId, buffer, console.log.bind(console));//发送数据  
+        });  
+
+    });  
+};  
+  chrome.serial.getDevices(onGetDevices);
+  chrome.serial.connect("COM7", {bitrate: 115200}, onConnect);  

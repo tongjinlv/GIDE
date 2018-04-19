@@ -470,6 +470,11 @@ Code.initLanguage = function() {
 };
 Code.initSerail = function() {
   var objSelect = document.getElementById("SerailMenu");
+  for(var i=1;i<objSelect.childNodes.length;i++){
+    objSelect.removeChild(objSelect.options[0]);
+    objSelect.remove(0);
+    objSelect.options[0] = null;
+    }
 var onGetDevices = function(ports) {
   for (var i=0; i<ports.length; i++) {
       console.log(ports[i].path);
@@ -480,6 +485,14 @@ var onGetDevices = function(ports) {
     }
   }
   chrome.serial.getDevices(onGetDevices);
+  var cp = require('child_process'); //子进程  
+var result = "";  
+  
+cp.exec("ping 127.0.0.1", function(error, stdout, stderr) {  
+  //alert(error);
+  alert(stdout);
+  //alert(stderr);
+});  
 };
 /**
  * Execute the user's code.
