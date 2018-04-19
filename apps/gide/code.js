@@ -320,7 +320,6 @@ Code.renderContent = function() {
  */
 Code.init = function() {
   Code.initLanguage();
- 
   Code.initSerail();
   var rtl = Code.isRtl();
   var container = document.getElementById('content_area');
@@ -328,6 +327,7 @@ Code.init = function() {
     var bBox = Code.getBBox_(container);
     for (var i = 0; i < Code.TABS_.length; i++) {
       var el = document.getElementById('content_' + Code.TABS_[i]);
+      
       el.style.top = bBox.y + 'px';
       el.style.left = bBox.x + 'px';
       // Height and width need to be set, read back, then set again to
@@ -405,6 +405,8 @@ Code.init = function() {
  * Initialize the page language.
  */
 Code.initLanguage = function() {
+
+  
   // Set the HTML's language and direction.
   var rtl = Code.isRtl();
   document.dir = rtl ? 'rtl' : 'ltr';
@@ -435,6 +437,7 @@ Code.initLanguage = function() {
     languageMenu.options.add(option);
     
   }
+  
   languageMenu.addEventListener('change', Code.changeLanguage, true);
   
   var categories = ['catInOut', 'catControl', 'catMath', 'catText', 'catLists',
@@ -442,9 +445,8 @@ Code.initLanguage = function() {
   for (var i = 0, cat; cat = categories[i]; i++) {
 	if(document.getElementById(cat)!=null){
 		document.getElementById(cat).setAttribute('name', MSG[cat]);
-	}
   }
- 
+  }
   // Inject language strings.
   //document.title += ' ' + MSG['title'];
   //document.getElementById('title').textContent = MSG['title'];
@@ -454,9 +456,8 @@ Code.initLanguage = function() {
   //document.getElementById('runButton').title = MSG['runTooltip'];
   //document.getElementById('trashButton').title = MSG['trashTooltip'];
   document.getElementById('copyright').textContent = MSG['copyright'];
-  document.getElementById('viewMode1').textContent = MSG['viewNormal'];
-  document.getElementById('viewMode2').textContent = MSG['viewAdvanced'];
-  
+  //document.getElementById('viewMode1').textContent = MSG['viewNormal'];
+  //document.getElementById('viewMode2').textContent = MSG['viewAdvanced'];
   var textVars = document.getElementsByClassName('textVar');
   
   for (var i = 0, textVar; textVar = textVars[i]; i++) {
@@ -468,7 +469,18 @@ Code.initLanguage = function() {
   }
 };
 Code.initSerail = function() {
-  
+  var objSelect = document.getElementById("SerailMenu");
+var onGetDevices = function(ports) {
+  for (var i=0; i<ports.length; i++) {
+      console.log(ports[i].path);
+     // alert(ports[i].path);
+      var new_opt = new Option(ports[i].path,ports[i].path);      
+      objSelect.options.add(new_opt);
+      // Connect to the serial port /dev/ttyUSB0
+     // chrome.serial.connect(ports[i].path, {bitrate: 9600}, onConnect);   
+    }
+  }
+  chrome.serial.getDevices(onGetDevices);
 };
 /**
  * Execute the user's code.
