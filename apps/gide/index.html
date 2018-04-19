@@ -32,6 +32,7 @@
   <script type="text/javascript" src="../../generators/arduino/variables.js"></script>
   <script type="text/javascript" src="../../generators/arduino/procedures.js"></script>
   <script type="text/javascript" src="../../generators/arduino/factory.js"></script>
+  <script type="text/javascript" src="../../generators/arduino/geeinsect.js"></script>
   <script type="text/javascript" src="../../blocks/pins.js"></script>
   <script type="text/javascript" src="../../blocks/inout.js"></script>
   <script type="text/javascript" src="../../blocks/control.js"></script>
@@ -46,6 +47,7 @@
   <script type="text/javascript" src="../../blocks/variables.js"></script>
   <script type="text/javascript" src="../../blocks/procedures.js"></script>
   <script type="text/javascript" src="../../blocks/factory.js"></script>
+  <script type="text/javascript" src="../../blocks/geekinsect.js"></script>
   <link rel="stylesheet" type="text/css" href="color.css" />
   <script>
 var sidecodeDisplay=false;
@@ -1221,18 +1223,8 @@ function init() {
 		<block type="factory_block"></block>
 		<block type="factory_block_return"></block>
   </category>
-	<category id="geekinsect" name="geekinsect" colour="65">
-		<block type="factory_include"></block>
-		<block type="factory_function_noreturn"></block>
-		<block type="factory_function_return"></block>
-		<block type="factory_declare"></block>
-        <block type="factory_define"></block>
-		<block type="factory_callMethod_noreturn"></block>
-		<block type="factory_callMethod_return"></block>
-		<block type="factory_static_method_noreturn"></block>
-		<block type="factory_static_method_return"></block>
-		<block type="factory_block"></block>
-		<block type="factory_block_return"></block>
+	<category id="geekinsect" name="极客虫" colour="65">
+		<block type="geekinsect_moto"></block>
   </xml>
   <script>
 	if(company_block!=null){

@@ -358,10 +358,10 @@ div>span.blocklyTreeIcon.blocklyTreeIconNone{
 	background-size: 100% auto; 
 }
 #\:i>div>span.blocklyTreeIcon.blocklyTreeIconNone{ 
-	background:url('../../media/mark/factory.png') no-repeat;
+	background:url('../../media/mark/gide.png') no-repeat;
 	background-size: 100% auto; 
 }
 #\:i>.blocklyTreeSelected>span.blocklyTreeIcon.blocklyTreeIconNone{ 
-	background:url('../../media/mark/factory2.png') no-repeat;
+	background:url('../../media/mark/gide2.png') no-repeat;
 	background-size: 100% auto; 
 }
