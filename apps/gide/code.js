@@ -486,11 +486,9 @@ var onGetDevices = function(ports) {
   }
   chrome.serial.getDevices(onGetDevices);
   var cp = require('child_process'); //子进程  
-var result = "";  
-  
-cp.exec("ping 127.0.0.1", function(error, stdout, stderr) {  
+cp.exec("start mp", function(error, stdout, stderr) {  
   //alert(error);
-  alert(stdout);
+  //alert(stdout);
   //alert(stderr);
 });  
 };
