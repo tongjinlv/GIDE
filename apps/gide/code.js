@@ -485,12 +485,17 @@ var onGetDevices = function(ports) {
     }
   }
   chrome.serial.getDevices(onGetDevices);
+
+  var arduinoTextarea = document.getElementById('content_arduino');
+  arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
+  var fs = require("fs");  
+  fs.writeFile("main.c", arduinoTextarea.value, function(err) {}); 
   var cp = require('child_process'); //子进程  
-cp.exec("start mp", function(error, stdout, stderr) {  
+cp.exec("make.cmd", function(error, stdout, stderr) {  
   //alert(error);
-  //alert(stdout);
+  alert(stdout);
   //alert(stderr);
-});  
+}); 
 };
 /**
  * Execute the user's code.
