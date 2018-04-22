@@ -485,19 +485,7 @@ var onGetDevices = function(ports) {
   }
   chrome.serial.getDevices(onGetDevices); 
 };
-Code.downLoad = function() {
-  var arduinoTextarea = document.getElementById('content_arduino');
-  arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
-  var fs = require("fs");  
-  fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
-  var com=document.getElementById("SerailMenu").value;
-  var cp = require('child_process'); //子进程  
-  cp.exec("IAP.exe -w "+com+"  main.bin", function(error, stdout, stderr) {  
-  //alert(error);
-  alert(stdout);
-  //alert(stderr);
-}); 
-};
+
 /**
  * Execute the user's code.
  * Just a quick and dirty eval.  Catch infinite loops.
