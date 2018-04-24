@@ -735,7 +735,7 @@ var MSG = {
   catLuxe:"泺喜机器人",
   tab_blocks: "模块",
   tab_arduino: "代码",
-  copyright:"Copyright © 极客虫集成开发环境  insect.trtos.com",
+  copyright:"Copyright © 苏州雄孩子科技",
   viewNormal:"普通视图",
   viewAdvanced:"高级视图"
 };
