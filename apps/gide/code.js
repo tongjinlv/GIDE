@@ -319,6 +319,7 @@ Code.renderContent = function() {
  * Initialize Blockly.  Called on page load.
  */
 Code.init = function() {
+  Debug.Init();
   Code.initLanguage();
   Code.initSerail();
   var rtl = Code.isRtl();
@@ -479,6 +480,7 @@ var onGetDevices = function(ports) {
   for (var i=0; i<ports.length; i++) {
       var new_opt = new Option(ports[i].path,ports[i].path);      
       objSelect.options.add(new_opt);
+      Debug(ports[i].path);
       // Connect to the serial port /dev/ttyUSB0
       //chrome.serial.connect(ports[i].path, {bitrate: 9600}, onConnect);   
     }

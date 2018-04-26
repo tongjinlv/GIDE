@@ -53,7 +53,7 @@ Serial.downLoad1 = function() {
   //alert(stderr);
 }); 
 };
-Serial.downLoad = function() {
+Serial.downLoad2 = function() {
   var onReceiveCallback = function(info) {//串口数据接收函数  
 	alert("Revice");  
   };  
@@ -75,4 +75,11 @@ Serial.downLoad = function() {
   }
   alert("dd");
   chrome.serial.disconnect(connectionId,onDisconnect);
+};
+Serial.downLoad = function() {
+  var fs = require("fs");  
+  var arduinoTextarea = document.getElementById('content_arduino');
+  arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
+  fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
+  Debug("ddddddd");
 };
