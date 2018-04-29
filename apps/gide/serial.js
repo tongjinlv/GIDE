@@ -81,5 +81,5 @@ Serial.downLoad = function() {
   var arduinoTextarea = document.getElementById('content_arduino');
   arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
   fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
-  Debug("ddddddd");
+  Debug("Write File main.c :\r\n"+arduinoTextarea.value);
 };
