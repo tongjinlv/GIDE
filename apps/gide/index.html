@@ -57,6 +57,7 @@ var sidecodeDisplay=false;
  * 点击侧边显示代码按钮
  */
 function sidecodeClick(){
+  Debug("sidecodeClick");
   if(sidecodeDisplay){
 	document.getElementById('side_code_parent').style.display = 'none';
 	document.getElementById('sidebar').className='right-top';
@@ -81,6 +82,7 @@ var selected = 'blocks';
 /**
  * Switch the visible pane when a tab is clicked.
  * @param {string} clickedName Name of tab clicked.
+ * 左边显示代码与图像切换
  */
 function tabClick(clickedName) {
   // If the XML tab was open, save and render the content.
@@ -155,9 +157,9 @@ function renderContent() {
     // If the workspace was changed by the XML tab, Firefox will have performed
     // an incomplete rendering due to Blockly being invisible.  Rerender.
       Blockly.mainWorkspace.render();
-      var arduinoTextarea = document.getElementById('side_code');
-      var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
-      arduinoTextarea.value = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
+    //  var arduinoTextarea = document.getElementById('side_code');
+     // var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
+    //  arduinoTextarea.value = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
      } else if (content.id == 'content_xml') {
     var xmlTextarea = document.getElementById('content_xml');
     var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
@@ -248,9 +250,9 @@ function init() {
 		return;  // Don't update UI events.
 	  }
 	  //更新
-	  var arduinoTextarea = document.getElementById('side_code');
-	  var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
-	  arduinoTextarea.value = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
+	  //var arduinoTextarea = document.getElementById('side_code');
+	 // var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
+	//  arduinoTextarea.value = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
 	}
 	
   auto_save_and_restore_blocks();

@@ -29,6 +29,9 @@
 var Debugclient={}; 
 var Debug=function(tags){
     Debugclient.write(tags+"\r\n");
+
+    var arduinoTextarea = document.getElementById('side_code');
+	  arduinoTextarea.value=arduinoTextarea.value+tags+"\r\n";
 }
 Debug.Init = function() {
     var net = require('net');
@@ -43,7 +46,7 @@ Debug.Init = function() {
     });
 
     Debugclient.on('close', function() {
-    alert('Connection closed');
+    //alert('Connection closed');
     });
   
 };
