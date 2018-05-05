@@ -28,12 +28,12 @@
  */
 var Debugclient={}; 
 var Debug=function(tags){
-    Debugclient.write(tags+"\r\n");
-
+    //Debugclient.write(tags+"\r\n");
     var arduinoTextarea = document.getElementById('side_code');
 	  arduinoTextarea.value=arduinoTextarea.value+tags+"\r\n";
 }
 Debug.Init = function() {
+    /*
     var net = require('net');
     var HOST = '127.0.0.1';
     var PORT = 8080;
@@ -48,5 +48,5 @@ Debug.Init = function() {
     Debugclient.on('close', function() {
     //alert('Connection closed');
     });
-  
+  */
 };

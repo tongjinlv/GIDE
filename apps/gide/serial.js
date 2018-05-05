@@ -81,5 +81,12 @@ Serial.downLoad = function() {
   var arduinoTextarea = document.getElementById('content_arduino');
   arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
   fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
-  Debug("Write File main.c :\r\n"+arduinoTextarea.value);
+  //Debug("Write File main.c :\r\n"+arduinoTextarea.value);
+  var cp = require('child_process'); //子进程  
+  cp.exec("IAP.exe -w "+com+"  main.bin", function(error, stdout, stderr) {  
+  //alert(error);
+  alert(stdout);
+  console.log(stdout);
+  //alert(stderr);
+}); 
 };
