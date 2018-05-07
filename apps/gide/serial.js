@@ -73,20 +73,29 @@ Serial.downLoad2 = function() {
       alert("断开连接失败");
     }
   }
-  alert("dd");
   chrome.serial.disconnect(connectionId,onDisconnect);
 };
+Serial.run = function(cmd) {
+  var exec = require('child_process').exec;
+  var child = exec(cmd);
+  
+  child.stdout.on('data', function(data) {
+    Debug(data);
+  });
+  child.stderr.on('data', function(data) {
+    Debug('stdout: ' + data);
+  });
+  child.on('close', function(code) {
+    Debug('closing code: ' + code);
+  });
+};
 Serial.downLoad = function() {
+  Debug.Clear();
   var fs = require("fs");  
   var arduinoTextarea = document.getElementById('content_arduino');
   arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
   fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
-  //Debug("Write File main.c :\r\n"+arduinoTextarea.value);
-  var cp = require('child_process'); //子进程  
-  cp.exec("IAP.exe -w "+com+"  main.bin", function(error, stdout, stderr) {  
-  //alert(error);
-  alert(stdout);
-  console.log(stdout);
-  //alert(stderr);
-}); 
+  var com=document.getElementById("SerailMenu").value;
+  Serial.run("IAP.exe -w "+com+"  main.bin");
+  Serial.run("docker");
 };

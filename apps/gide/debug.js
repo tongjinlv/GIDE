@@ -32,6 +32,10 @@ var Debug=function(tags){
     var arduinoTextarea = document.getElementById('side_code');
 	  arduinoTextarea.value=arduinoTextarea.value+tags+"\r\n";
 }
+Debug.Clear=function() {
+    var arduinoTextarea = document.getElementById('side_code');
+	arduinoTextarea.value="";
+};
 Debug.Init = function() {
     /*
     var net = require('net');
