@@ -52,8 +52,10 @@
   <script type="text/javascript" src="../../generators/arduino/geekinsect.js"></script>
   <link rel="stylesheet" type="text/css" href="color.css" />
   <script>
- 
-var sidecodeDisplay=window.sessionStorage.getItem("sidecodeDisplay");
+ var sidecodeDisplay=false;
+ //alert(sessionStorage.getItem("abc"));
+ sidecodeDisplay=sessionStorage.getItem("abc");
+ alert(sidecodeDisplay);
 /**
  * 点击侧边显示代码按钮
  */ 
@@ -70,7 +72,8 @@ function sidecodeClick(){
 	sidecodeDisplay=true;
   }
   Blockly.fireUiEvent(window, 'resize');
-  window.sessionStorage.setItem("sidecodeDisplay", sidecodeDisplay);
+  sessionStorage.setItem("abc",sidecodeDisplay);
+  alert(sessionStorage.getItem("abc"));
 }
 /**
  * List of tab names.
