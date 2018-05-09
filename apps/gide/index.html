@@ -53,9 +53,7 @@
   <link rel="stylesheet" type="text/css" href="color.css" />
   <script>
  var sidecodeDisplay=false;
- //alert(sessionStorage.getItem("abc"));
- sidecodeDisplay=sessionStorage.getItem("abc");
- alert(sidecodeDisplay);
+if(sessionStorage.getItem("abc")=="true")sidecodeDisplay=true;
 /**
  * 点击侧边显示代码按钮
  */ 
@@ -73,7 +71,6 @@ function sidecodeClick(){
   }
   Blockly.fireUiEvent(window, 'resize');
   sessionStorage.setItem("abc",sidecodeDisplay);
-  alert(sessionStorage.getItem("abc"));
 }
 /**
  * List of tab names.
@@ -1231,7 +1228,7 @@ function init() {
 		<block type="factory_block"></block>
 		<block type="factory_block_return"></block>
   </category>
-	<category id="geekinsect" name="极客虫" colour="77">
+	<category id="catGeekInsect" colour="77">
     <block type="geekinsect_moto">
       <value name="VALUE1">
        <shadow type="math_number">

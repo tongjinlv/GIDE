@@ -721,6 +721,7 @@ var MSG = {
   catSense: "盛思(盒子)",
   catSense2: "盛思(机器人)",
   catLuxe:"泺喜机器人",
+  catGeekInsect:"极客虫",
   tab_blocks: "模块",
   tab_arduino: "代码",
   copyright:"Copyright © 北师大教育学部创客教育实验室  insect.trtos.com",

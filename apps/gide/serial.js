@@ -75,6 +75,7 @@ Serial.downLoad2 = function() {
   }
   chrome.serial.disconnect(connectionId,onDisconnect);
 };
+var downLoad_busy=false;
 Serial.run = function(cmd) {
   var exec = require('child_process').exec;
   var child = exec(cmd);
@@ -87,14 +88,23 @@ Serial.run = function(cmd) {
   });
   child.on('close', function(code) {
     Debug('closing code: ' + code);
+    downLoad_busy=false;
   });
 };
 Serial.downLoad = function() {
+  sidecodeDisplay=false;
+  sidecodeClick();
+  if(downLoad_busy==false)
+  {
+  downLoad_busy=true;
   Debug.Clear();
   var fs = require("fs");  
   var arduinoTextarea = document.getElementById('content_arduino');
   arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace); 
   fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
   var com=document.getElementById("SerailMenu").value;
-  Serial.run("IAP.exe -w "+com+"  main.bin");
+  //Serial.run("IAP.exe -w "+com+"  main.bin");
+  Serial.run("Test.exe");
+  
+  }
 };

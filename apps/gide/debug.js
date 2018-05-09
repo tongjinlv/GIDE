@@ -30,7 +30,7 @@ var Debugclient={};
 var Debug=function(tags){
     //Debugclient.write(tags+"\r\n");
     var arduinoTextarea = document.getElementById('side_code');
-	  arduinoTextarea.value=arduinoTextarea.value+tags+"\r\n";
+	  arduinoTextarea.value=arduinoTextarea.value+tags;
 }
 Debug.Clear=function() {
     var arduinoTextarea = document.getElementById('side_code');

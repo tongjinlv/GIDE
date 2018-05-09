@@ -442,7 +442,7 @@ Code.initLanguage = function() {
   languageMenu.addEventListener('change', Code.changeLanguage, true);
   
   var categories = ['catInOut', 'catControl', 'catMath', 'catText', 'catLists',
-                    'catLogic','catSerialPort','catGroup','catStorage','catSensor','catActuator','catMonitor', 'catVar','catFun','catEthernet','catEthernet_init','catEthernet_clinet','catSense','catSense2','catLuxe'];
+                    'catLogic','catSerialPort','catGroup','catStorage','catSensor','catActuator','catMonitor', 'catVar','catFun','catEthernet','catEthernet_init','catEthernet_clinet','catSense','catSense2','catFactory','catGeekInsect'];
   for (var i = 0, cat; cat = categories[i]; i++) {
 	if(document.getElementById(cat)!=null){
 		document.getElementById(cat).setAttribute('name', MSG[cat]);
@@ -480,7 +480,6 @@ var onGetDevices = function(ports) {
   for (var i=0; i<ports.length; i++) {
       var new_opt = new Option(ports[i].path,ports[i].path);      
       objSelect.options.add(new_opt);
-      Debug(ports[i].path);
       // Connect to the serial port /dev/ttyUSB0
       //chrome.serial.connect(ports[i].path, {bitrate: 9600}, onConnect);   
     }

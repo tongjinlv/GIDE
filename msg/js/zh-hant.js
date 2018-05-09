@@ -732,10 +732,11 @@ catEthernet_init:"初始化",
 catEthernet_clinet:"客戶端",
 catSense:"盛思（盒子）",
 catSense2:"盛思（機器人）",
-catLuxe:"濼喜機器人",
+catFactory:"工廠",
+catGeekInsect:"極客蟲",
 tab_blocks:"模塊",
 tab_arduino:"程式碼",
-copyright:"Copyright © 北師大教育學部創客教育實驗室  insect.trtos.com",
+copyright:"Copyright © 苏州熊孩子科技  insect.trtos.com",
 viewNormal:"普通視圖",
 viewAdvanced:"高級視圖"
 };
