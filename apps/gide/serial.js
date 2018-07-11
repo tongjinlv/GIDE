@@ -104,7 +104,7 @@ Serial.downLoad = function() {
   fs.writeFile("main.c", arduinoTextarea.value, function(err) {});
   var com=document.getElementById("SerailMenu").value;
   //Serial.run("IAP.exe -w "+com+"  main.bin");
-  Serial.run("Test.exe");
+  Serial.run("audo.cmd");
   
   }
 };
